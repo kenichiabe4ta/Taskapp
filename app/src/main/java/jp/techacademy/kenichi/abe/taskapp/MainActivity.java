@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
         reloadListView();
     }
 
-    TextWatcher watchHandler = new TextWatcher() {  //文字列検索用の入力欄
+    TextWatcher watchHandler = new TextWatcher() {  //文字列検索用の入力チェック
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
         @Override
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<Task> taskArrayList = new ArrayList<>();
 
-        for (int i = 0; i < mTaskRealmResults.size(); i++) {
+        for (int i = 0; i < mTaskRealmResults.size(); i++) {                //categoryと合致するかチェック
             String str = mTaskRealmResults.get(i).getCategory();
             if((str.length() == 0)||(str.indexOf(mEditText.getText().toString()) != -1) ){  //未入力or部分一致のみリスト表示
                 Task task = new Task();
